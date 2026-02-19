@@ -1,1 +1,276 @@
---131
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- Обеспечивает корректное отображение на мобильных устройствах -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veloremont — Профессиональный ремонт велосипедов</title>
+
+    <style>
+        /* === Сброс стилей и базовые настройки === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Размеры элементов включают внутренние отступы и границы */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth; /* Плавная прокрутка к якорям */
+        }
+
+        /* === Шапка и Навигация === */
+        header {
+            background: #fff;
+            position: sticky; /* Фиксация шапки при скролле */
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #2c5aa0;
+        }
+
+        /* === Главный баннер (Hero Section) === */
+        .hero {
+            height: 100vh;
+            /* Наложение темного градиента на изображение для читаемости белого текста */
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                        url('https://raw.githubusercontent.com/mmr1337/loader.lua/main/back.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Адаптивный размер шрифта */
+            margin-bottom: 1rem;
+        }
+
+        .cta-btn {
+            background: #2c5aa0;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #1e3f7a;
+            transform: translateY(-2px);
+        }
+
+        /* === Секция услуг === */
+        .services-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Три колонки по умолчанию */
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            border: 1px solid #eee;
+            padding: 2rem;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* === Аккордеон FAQ (Вопросы и ответы) === */
+        .faq-section {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            border: 1px solid #ddd;
+            margin-bottom: 0.75rem;
+            background: #fff;
+        }
+
+        summary {
+            padding: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none; /* Скрываем стандартный маркер в некоторых браузерах */
+        }
+
+        /* Стили при открытом спойлере */
+        details[open] summary {
+            background: #2c5aa0;
+            color: #fff;
+        }
+
+        .faq-content {
+            padding: 1.2rem;
+            border-top: 1px solid #eee;
+        }
+
+        /* === Футер (Подвал) === */
+        footer {
+            background: #232323;
+            color: #fff;
+            padding: 4rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        /* === Адаптивность (Media Queries) === */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services-grid {
+                grid-template-columns: 1fr; /* 1 колонка на мобильных */
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационная панель -->
+    <header>
+        <nav>
+            <a href="#home">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#faq">Вопросы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Приветственный блок -->
+        <section id="home" class="hero">
+            <h1>Профессиональный ремонт велосипедов</h1>
+            <p>Вернём вашего железного друга в строй за 24 часа</p>
+            <a href="#services" class="cta-btn">Посмотреть услуги</a>
+        </section>
+
+        <!-- Сетка услуг -->
+        <section id="services" class="services-section">
+            <h2 style="text-align: center; font-size: 2.5rem;">Наши услуги</h2>
+            <div class="services-grid">
+                <!-- Используем article для независимых блоков контента -->
+                <article class="service-card">
+                    <span class="service-icon">🔧</span>
+                    <h3>Диагностика</h3>
+                    <p>Бесплатный осмотр при условии последующего ремонта у нас.</p>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-icon">⚙️</span>
+                    <h3>Трансмиссия</h3>
+                    <p>Настройка переключателей, чистка цепи и замена изношенных звезд.</p>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-icon">🛞</span>
+                    <h3>Колёса</h3>
+                    <p>Исправление «восьмерок», переспицовка и замена покрышек.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Секция FAQ с использованием семантических тегов details/summary -->
+        <section id="faq" class="faq-section">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Частые вопросы</h2>
+            <div class="faq-list">
+                <details>
+                    <summary>Нужна ли предварительная запись?</summary>
+                    <div class="faq-content">
+                        <p>Желательно, чтобы мастер был свободен именно под ваш запрос, но мы принимаем и в порядке живой очереди.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Какие запчасти вы используете?</summary>
+                    <div class="faq-content">
+                        <p>Мы работаем с оригиналами Shimano, SRAM и качественными аналогами в зависимости от бюджета.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <!-- Контактная информация -->
+    <footer id="contacts">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3 style="color: #2c5aa0; margin-bottom: 1rem;">Veloremont</h3>
+                <p>Мастерская с душой для тех, кто ценит скорость и безопасность.</p>
+            </div>
+            <div class="footer-contacts">
+                <h4>Связаться с нами</h4>
+                <p>📞 +X (XXX) XXX-XX-XX</p>
+                <p>📍 XX. XXXXX, X. XX</p>
+                <p>✉️ XXXX@XXXXX.XX</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
